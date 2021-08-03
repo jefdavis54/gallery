@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Head from 'next/head'
-import Image from 'next/image'
-import { Sty_Home } from "../styles/Home.sty"
+import Head from "next/head";
+import Image from "next/image";
+import { Sty_Home } from "../styles/Home.sty";
 
 export default function Home() {
   return (
@@ -13,17 +13,20 @@ export default function Home() {
       </Head>
 
       <main className="main">
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing{' '}
-          <code className="code">pages/index.js</code>
-        </p>
+        <h1 className="title">Welcome to My Gallery</h1>
 
         <Link href="/gallery">
-          <a>Gallery</a>
+          <a>
+            <Image
+              src="/HERO_IMAGE.webp"
+              alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
+              width={920}
+              height={800}
+            />
+          </a>
+        </Link>
+        <Link href="/gallery">
+          <a>Enter Gallery</a>
         </Link>
 
         <div className="grid">
@@ -63,12 +66,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className="logo">
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </Sty_Home>
-  )
+  );
 }

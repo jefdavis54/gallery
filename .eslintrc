@@ -1,4 +1,7 @@
 {
-  "plugins":["prettier"],
-  "extends": ["next", "next/core-web-vitals"]
+  "plugins": ["prettier"],
+  "extends": ["next", "next/core-web-vitals"],
+  "rules": {
+    // "@next/next/no-img-element": "off"
+  }
 }

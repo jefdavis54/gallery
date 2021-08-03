@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -8,8 +8,11 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
+  body {
+    background-color: #cccfe0;
+  }
   * {
     box-sizing: border-box;
   }
-`
-export {GlobalStyle}
+`;
+export { GlobalStyle };

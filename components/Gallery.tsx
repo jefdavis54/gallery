@@ -1,5 +1,25 @@
-const Gallery = () => {
-  return <div><h1>Hello World</h1><h3>I am the Gallery component</h3></div>
-}
+import PhotoGallery from "react-photo-gallery";
+import { works } from "../utils/works";
 
-export {Gallery}
+interface Photo {
+  src: string;
+  width: number;
+  height: number;
+}
+type Direction = "column" | "row";
+
+const photos: Photo[] = works.map((work) => {
+  return {
+    src: `images/thm/work/${work.easyId}.webp`,
+    width: work.imageThmWidth,
+    height: work.imageThmHeight,
+  };
+});
+
+const direction: Direction = "row";
+
+const Gallery = () => {
+  return <PhotoGallery photos={photos} direction={direction} />;
+};
+
+export { Gallery };

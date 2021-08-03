@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Sty_Home = styled.div`
   .container {
@@ -12,7 +12,7 @@ const Sty_Home = styled.div`
   }
 
   .main {
-    padding: 5rem 0;
+    padding: 2rem 0;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -50,26 +50,11 @@ const Sty_Home = styled.div`
   .title {
     margin: 0;
     line-height: 1.15;
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
-  .title,
-  .description {
+  .title {
     text-align: center;
-  }
-
-  .description {
-    line-height: 1.5;
-    font-size: 1.5rem;
-  }
-
-  .code {
-    background: #fafafa;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-      Bitstream Vera Sans Mono, Courier New, monospace;
   }
 
   .grid {
@@ -122,6 +107,6 @@ const Sty_Home = styled.div`
       flex-direction: column;
     }
   }
-`
+`;
 
-export {Sty_Home}
+export { Sty_Home };
