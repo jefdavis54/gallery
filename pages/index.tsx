@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Head from 'next/head'
 import Image from 'next/image'
 import { Sty_Home } from "../styles/Home.sty"
@@ -20,6 +21,10 @@ export default function Home() {
           Get started by editing{' '}
           <code className="code">pages/index.js</code>
         </p>
+
+        <Link href="/gallery">
+          <a>Gallery</a>
+        </Link>
 
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
