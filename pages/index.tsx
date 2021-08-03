@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
 import { Sty_Home } from "../styles/Home.sty";
 
 export default function Home() {
@@ -17,12 +16,14 @@ export default function Home() {
 
         <Link href="/gallery">
           <a>
-            <Image
-              src="/HERO_IMAGE.webp"
-              alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
-              width={920}
-              height={800}
-            />
+            <picture>
+              <source type="image/webp" srcSet="HERO_IMAGE.webp" />
+              <source type="image/jpeg" srcSet="HERO_IMAGE.jpg" />
+              <img
+                src="HERO_IMAGE.jpg"
+                alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
+              />
+            </picture>
           </a>
         </Link>
         <Link href="/gallery">
@@ -66,10 +67,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
-          <span className="logo">
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
+          Powered by Next.js
         </a>
       </footer>
     </Sty_Home>
