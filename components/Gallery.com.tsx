@@ -17,11 +17,11 @@ const Gallery = ({ photos, direction }: ComponentProps) => {
     if (e?.target?.src) {
       const pathStrArr = e.target.src.split("/");
       const filename = pathStrArr.pop();
-      const extensionCHK = filename.split(".");
+      const extensionCHK: string[] = filename.split(".");
       if (extensionCHK.length === 2) {
         const resourceCHK = extensionCHK[0].split("_");
         if (resourceCHK.length === 2) {
-          router.push(`/artwork?id=${extensionCHK[0]}`);
+          router.push(`/artwork?id=${extensionCHK[0].toLowerCase()}`);
           return;
         }
       }

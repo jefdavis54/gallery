@@ -19,7 +19,7 @@ interface UpdateCheckedProps {
 
 const initialGalleryPhotos: Photo[] = worksSource.map((work) => {
   return {
-    src: `images/thm/work/${work.easyId}.webp`,
+    src: `images/thm/work/${work.easyId.toUpperCase()}.webp`,
     width: work.imageThmWidth,
     height: work.imageThmHeight,
   };
