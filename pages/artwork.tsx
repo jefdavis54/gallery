@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { works as worksSource } from "../utils/works";
 import { locations as locationsSource } from "../utils/locations";
 import { artists as artistsSource } from "../utils/artists";
-import { Sty_Img, Sty_ImgContainer } from "../styles/artworkPage";
+import { Sty_Img, Sty_ImgContainer } from "../styles/ArtworkPage.sty";
 
 const ArtworkDetails = ({
   workName,
