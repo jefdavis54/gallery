@@ -1,26 +1,4 @@
-interface Location {
-  easyId: string;
-  imageMaxWidth: number;
-  imageMaxHeight: number;
-  imageOptWidth: number;
-  imageOptHeight: number;
-  imageThmWidth: number;
-  imageThmHeight: number;
-  name: string;
-  nickname: string;
-  dateFirstOpened: string;
-  streetAddress: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  country: string;
-  coorN: number;
-  coorE: number;
-  website: string;
-  wikiPage: string;
-}
-
-const locations: Location[] = [
+const locations: TSI_Location[] = [
   {
     easyId: "ac",
     imageMaxWidth: 4500,

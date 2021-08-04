@@ -1,17 +1,4 @@
-interface Artist {
-  easyId: string;
-  imageMaxWidth: number;
-  imageMaxHeight: number;
-  imageOptWidth: number;
-  imageOptHeight: number;
-  imageThmWidth: number;
-  imageThmHeight: number;
-  name: string;
-  nationality: string;
-  wikiPage: string;
-}
-
-const artists: Artist[] = [
+const artists: TSI_Artist[] = [
   {
     easyId: "bruegel-pte",
     imageMaxWidth: 2205,

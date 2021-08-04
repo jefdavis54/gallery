@@ -1,22 +1,4 @@
-interface Work {
-  easyId: string;
-  imageMaxWidth: number;
-  imageMaxHeight: number;
-  imageOptWidth: number;
-  imageOptHeight: number;
-  imageThmWidth: number;
-  imageThmHeight: number;
-  artist: string;
-  artworkLocation: string;
-  workName: string;
-  dateCompleted: string;
-  Accession: string;
-  actualWidth_mm: number;
-  actualHeight_mm: number;
-  artworkLocationURL: string;
-}
-
-const works: Work[] = [
+const works: TSI_Work[] = [
   {
     easyId: "bruegel-pte_0001",
     imageMaxWidth: 4945,
