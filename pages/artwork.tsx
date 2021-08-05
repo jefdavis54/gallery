@@ -91,7 +91,7 @@ const ArtworkPage = () => {
       </Link>
       <Sty_ImgContainer>
         <Sty_Img
-          src={"images/opt/work/" + artwork?.easyId.toUpperCase() + ".jpg"}
+          src={"images/opt/work/" + artwork?.easyId + ".jpg"}
           alt={imgAlternateText}
         ></Sty_Img>
       </Sty_ImgContainer>

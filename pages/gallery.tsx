@@ -19,7 +19,7 @@ interface UpdateCheckedProps {
 
 const initialGalleryPhotos: Photo[] = worksSource.map((work) => {
   return {
-    src: `images/thm/work/${work.easyId.toUpperCase()}.webp`,
+    src: `images/thm/work/${work.easyId}.webp`,
     width: work.imageThmWidth,
     height: work.imageThmHeight,
   };
@@ -61,7 +61,7 @@ function ArtGallery() {
       });
       const filteredPhotos = filteredWorks.map((work) => {
         return {
-          src: `images/thm/work/${work.easyId.toUpperCase()}.webp`,
+          src: `images/thm/work/${work.easyId}.webp`,
           width: work.imageThmWidth,
           height: work.imageThmHeight,
         };
