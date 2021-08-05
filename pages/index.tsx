@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Head from "next/head";
+import { Sty_FancyButton } from "../styles/FancyButton";
 import {
   Sty_Container,
   Sty_Main,
-  Sty_Picture,
-  Sty_Title,
+  Sty_PictureBlock,
   Sty_Footer,
-  Sty_Grid,
-  Sty_Card,
+  Sty_Title,
 } from "../styles/IndexPage.sty";
 
 export default function Home() {
@@ -20,47 +19,27 @@ export default function Home() {
       </Head>
 
       <Sty_Main>
-        <h1 className="title">Welcome to My Gallery</h1>
+        <Sty_Title>Welcome to My Gallery</Sty_Title>
 
-        <Link href="/gallery">
-          <a>
-            <Sty_Picture>
-              <source type="image/webp" srcSet="hero_opt.webp" />
-              <source type="image/jpeg" srcSet="hero_opt.jpg" />
-              <img
-                src="hero_opt.jpg"
-                alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
-              />
-            </Sty_Picture>
-          </a>
-        </Link>
-        <Link href="/gallery">
-          <a>Enter Gallery</a>
-        </Link>
-
-        <Sty_Grid>
-          <Sty_Card href="https://nextjs.org/docs">
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </Sty_Card>
-
-          <Sty_Card href="https://nextjs.org/learn">
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </Sty_Card>
-
-          <Sty_Card href="https://github.com/vercel/next.js/tree/master/examples">
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </Sty_Card>
-
-          <Sty_Card href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </Sty_Card>
-        </Sty_Grid>
+        <Sty_PictureBlock>
+          <Link href="/gallery">
+            <a>
+              <picture>
+                <source type="image/webp" srcSet="hero_opt.webp" />
+                <source type="image/jpeg" srcSet="hero_opt.jpg" />
+                <img
+                  src="hero_opt.jpg"
+                  alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
+                />
+              </picture>
+            </a>
+          </Link>
+        </Sty_PictureBlock>
+        <Sty_FancyButton>
+          <Link href="/gallery">
+            <a>Enter Gallery</a>
+          </Link>
+        </Sty_FancyButton>
       </Sty_Main>
 
       <Sty_Footer>
