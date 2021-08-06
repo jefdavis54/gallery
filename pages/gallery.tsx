@@ -1,9 +1,12 @@
-import Link from "next/link";
 import { useState } from "react";
 import { Gallery } from "../components/Gallery.com";
+import { HtmlHead } from "../components/HtmlHead.com";
+import { Nav } from "../components/Nav.com";
 import { OptionsBox } from "../components/OptionsBox.com";
 import { works as worksSource } from "../utils/works";
 import { artists as artistsSource } from "../utils/artists";
+import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
+import { Sty_LabelFilterHeading } from "../styles/Page_Gallery.sty";
 
 interface ArtistDetails {
   easyId: string;
@@ -72,16 +75,17 @@ function ArtGallery() {
 
   return (
     <div>
-      <Link href="/">
-        <a>Go Home</a>
-      </Link>
-      <h3>I am the Gallery component</h3>
-      <OptionsBox
-        componentId={"artist01"}
-        optionsArr={artistDetails}
-        handleChecked={handleArtistCheckedChange}
-      />
-      <Gallery photos={galleryPhotos} direction={"row"} />
+      <HtmlHead></HtmlHead>
+      <Nav></Nav>
+      <Sty_ContainerPageWithNav>
+        <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
+        <OptionsBox
+          componentId={"artist01"}
+          optionsArr={artistDetails}
+          handleChecked={handleArtistCheckedChange}
+        />
+        <Gallery photos={galleryPhotos} direction={"row"} />
+      </Sty_ContainerPageWithNav>
     </div>
   );
 }

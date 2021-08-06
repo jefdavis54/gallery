@@ -1,6 +1,6 @@
 import styled from "styled-components";
-const Sty_FancyButton = styled.button`
-  margin: 2.5rem;
+const Sty_BtnFancy = styled.button`
+  margin: 10px 30px;
   width: 150px;
   height: 50px;
   cursor: pointer;
@@ -14,7 +14,7 @@ const Sty_FancyButton = styled.button`
   transition: 500ms ease-in-out;
 
   :hover {
-    box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+    box-shadow: 20px 4px 0 black, -20px -4px 0 black;
   }
 
   :focus {
@@ -26,5 +26,4 @@ const Sty_FancyButton = styled.button`
     color: inherit;
   }
 `;
-
-export { Sty_FancyButton };
+export { Sty_BtnFancy };

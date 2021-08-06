@@ -3,7 +3,12 @@ import { useRouter } from "next/router";
 import { works as worksSource } from "../utils/works";
 import { locations as locationsSource } from "../utils/locations";
 import { artists as artistsSource } from "../utils/artists";
-import { Sty_Img, Sty_ImgContainer } from "../styles/ArtworkPage.sty";
+import { HtmlHead } from "../components/HtmlHead.com";
+import { Nav } from "../components/Nav.com";
+import { Sty_Img } from "../styles/Page_Artwork.sty";
+import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
+import { Sty_ContainerBordered } from "../styles/ContainerBordered.sty";
+import { Sty_ContainerImg } from "../styles/ContainerImg.sty";
 
 const ArtworkDetails = ({
   workName,
@@ -85,24 +90,24 @@ const ArtworkPage = () => {
 
   return (
     <div>
-      <h1>artworkPage</h1>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-      <Sty_ImgContainer>
-        <Sty_Img
-          src={"images/opt/work/" + artwork?.easyId + ".jpg"}
-          alt={imgAlternateText}
-        ></Sty_Img>
-      </Sty_ImgContainer>
-      <div>
-        {artist && ArtistDetails(artist)}
-        {artwork && ArtworkDetails(artwork)}
-        {location && LocationDetails(location)}
-      </div>
-      <button type="button" onClick={() => router.back()}>
-        Go back
-      </button>
+      <HtmlHead></HtmlHead>
+      <Nav></Nav>
+      <Sty_ContainerPageWithNav>
+        <Sty_ContainerBordered>
+          <h2>{imgAlternateText}</h2>
+        </Sty_ContainerBordered>
+        <Sty_ContainerImg>
+          <Sty_Img
+            src={"images/opt/work/" + artwork?.easyId + ".jpg"}
+            alt={imgAlternateText}
+          ></Sty_Img>
+        </Sty_ContainerImg>
+        <Sty_ContainerBordered>
+          {artist && ArtistDetails(artist)}
+          {artwork && ArtworkDetails(artwork)}
+          {location && LocationDetails(location)}
+        </Sty_ContainerBordered>
+      </Sty_ContainerPageWithNav>
     </div>
   );
 };

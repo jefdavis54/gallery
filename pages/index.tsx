@@ -1,26 +1,18 @@
 import Link from "next/link";
-import Head from "next/head";
-import { Sty_FancyButton } from "../styles/FancyButton";
+import { HtmlHead } from "../components/HtmlHead.com";
+import { Sty_BtnFancy } from "../styles/BtnFancy.sty";
 import {
   Sty_Container,
   Sty_Main,
   Sty_PictureBlock,
   Sty_Footer,
   Sty_Title,
-} from "../styles/IndexPage.sty";
+} from "../styles/Page_Index.sty";
 
 export default function Home() {
   return (
     <Sty_Container>
-      <Head>
-        <title>The Strorm Gallery</title>
-        <meta
-          name="description"
-          content="A simple art gallery with a number of my favorite artists."
-        />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-
+      <HtmlHead></HtmlHead>
       <Sty_Main>
         <Sty_Title>Welcome to the Strorm Gallery</Sty_Title>
 
@@ -38,11 +30,11 @@ export default function Home() {
             </a>
           </Link>
         </Sty_PictureBlock>
-        <Sty_FancyButton>
+        <Sty_BtnFancy>
           <Link href="/gallery">
             <a>Enter Gallery</a>
           </Link>
-        </Sty_FancyButton>
+        </Sty_BtnFancy>
       </Sty_Main>
 
       <Sty_Footer>
