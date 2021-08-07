@@ -4,7 +4,7 @@ import { locations as locationsSource } from "../utils/locations";
 import { artists as artistsSource } from "../utils/artists";
 import { HtmlHead } from "../components/HtmlHead.com";
 import { Nav } from "../components/Nav.com";
-import { Sty_Img } from "../styles/Page_Artwork.sty";
+import { Sty_Img, Sty_Title } from "../styles/Page_Artwork.sty";
 import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
 import { Sty_ContainerBordered } from "../styles/ContainerBordered.sty";
 import { Sty_ContainerImg } from "../styles/ContainerImg.sty";
@@ -68,7 +68,6 @@ const ArtworkPage = () => {
       type: "url",
     });
   }
-  tableRows.filter((row) => row.value.trim().length > 0);
   const imgAlternateText =
     (artist ? artist.name : "") +
     (artist && artwork ? " - " : "") +
@@ -80,7 +79,7 @@ const ArtworkPage = () => {
       <Nav></Nav>
       <Sty_ContainerPageWithNav>
         <Sty_ContainerBordered>
-          <h2>{imgAlternateText}</h2>
+          <Sty_Title>{imgAlternateText}</Sty_Title>
         </Sty_ContainerBordered>
         <Sty_ContainerImg>
           <Sty_Img

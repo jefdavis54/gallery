@@ -58,10 +58,10 @@ function ArtGallery() {
   const hasMounted = useHasMounted();
   if (hasMounted) {
     disableTillMounted = false;
-    const localState = window?.localStorage.getItem("artistFilters");
-    if (localState) {
-      console.log("JSON.parse(localState)", JSON.parse(localState));
-    }
+    // const localState = window?.localStorage.getItem("artistFilters");
+    // if (localState) {
+    //   console.log("JSON.parse(localState)", JSON.parse(localState));
+    // }
   }
   const handleArtistCheckedChange = ({
     easyId,
