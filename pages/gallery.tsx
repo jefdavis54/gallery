@@ -6,7 +6,12 @@ import { OptionsBox } from "../components/OptionsBox.com";
 import { works as worksSource } from "../utils/works";
 import { artists as artistsSource } from "../utils/artists";
 import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
-import { Sty_LabelFilterHeading, Sty_OneRow } from "../styles/Page_Gallery.sty";
+import {
+  Sty_LabelFilterHeading,
+  Sty_OneRow,
+  Sty_BtnAll,
+  Sty_BtnNone,
+} from "../styles/Page_Gallery.sty";
 
 interface ArtistDetails {
   easyId: string;
@@ -42,7 +47,7 @@ function ArtGallery() {
   const [galleryPhotos, setGalleryPhotos] = useState(initialGalleryPhotos);
   // useEffect(() => {
   //   window.localStorage.setItem("artistFilters", JSON.stringify(artistDetails));
-  // });
+  // }, [artistDetails]);
   const handleArtistCheckedChange = ({
     easyId,
     checked,
@@ -97,10 +102,27 @@ function ArtGallery() {
         <Sty_OneRow>
           <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
           <div>
-            <button onClick={() => showAllWorks(true)}>Select All</button>
+            <Sty_BtnAll onClick={() => showAllWorks(true)}>
+              <span className="toggle-indicator">
+                <span className="checkMark">
+                  <svg
+                    viewBox="0 0 24 24"
+                    id="ghq-svg-check"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                  </svg>
+                </span>
+              </span>
+              Select All
+            </Sty_BtnAll>
           </div>
           <div>
-            <button onClick={() => showAllWorks(false)}>Select None</button>
+            <Sty_BtnNone onClick={() => showAllWorks(false)}>
+              <span className="toggle-indicator"></span>
+              Select None
+            </Sty_BtnNone>
           </div>
         </Sty_OneRow>
         <OptionsBox
