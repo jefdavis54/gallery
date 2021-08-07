@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HtmlHead } from "../components/HtmlHead.com";
-import { Sty_BtnFancy } from "../styles/BtnFancy.sty";
+import { Sty_FancyAnchor } from "../styles/FancyLinkOptions.sty";
 import {
   Sty_Container,
   Sty_Main,
@@ -30,11 +30,9 @@ export default function Home() {
             </a>
           </Link>
         </Sty_PictureBlock>
-        <Sty_BtnFancy>
-          <Link href="/gallery">
-            <a>Enter Gallery</a>
-          </Link>
-        </Sty_BtnFancy>
+        <Link href="/gallery" passHref>
+          <Sty_FancyAnchor>Enter Gallery</Sty_FancyAnchor>
+        </Link>
       </Sty_Main>
 
       <Sty_Footer>
