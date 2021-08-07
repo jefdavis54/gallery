@@ -16,13 +16,13 @@ const Sty_NavRow = styled.div`
 
 const Sty_NavTitle = styled.div`
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-weight: bold;
-  @media (max-width: 800px) {
-    font-size: 1.5rem;
+  @media (max-width: 850px) {
+    font-size: 2.4rem;
   }
-  @media (max-width: 550px) {
-    font-size: 1rem;
+  @media (max-width: 600px) {
+    font-size: 1.6rem;
   } ;
 `;
 

@@ -1,17 +1,30 @@
 import styled from "styled-components";
 
 const Sty_TableContainer = styled.div`
+  font-size: 2rem;
   background: #637181;
   text-align: center;
   color: black;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   display: flex;
   justify-content: center;
 
-  td {
+  .col-one {
+    width: 24rem;
+  }
+  .col-two {
+    max-width: 1px;
+  }
+
+  td,
+  th {
     text-align: left;
+  }
+  th {
+    font-size: 2.4rem;
   }
   thead tr {
     background: black;
@@ -23,11 +36,23 @@ const Sty_TableContainer = styled.div`
   tbody tr:nth-of-type(even) {
     background: #cccfe0;
   }
-  .col-one {
-    width: 12rem;
+  tfoot {
+    font-size: 1.4rem;
   }
-  .col-two {
-    max-width: 1px;
+  @media (max-width: 850px) {
+    font-size: 1.8rem;
+    .col-one {
+      width: 20rem;
+    }
+    tfoot {
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 600px) {
+    font-size: 1.6rem;
+    .col-one {
+      width: 18rem;
+    }
   }
 `;
 

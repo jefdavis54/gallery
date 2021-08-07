@@ -7,6 +7,7 @@ import {
   Sty_PictureBlock,
   Sty_Footer,
   Sty_Title,
+  Sty_LinkBlock,
 } from "../styles/Page_Index.sty";
 
 export default function Home() {
@@ -30,9 +31,11 @@ export default function Home() {
             </a>
           </Link>
         </Sty_PictureBlock>
-        <Link href="/gallery" passHref>
-          <Sty_FancyAnchor>Enter Gallery</Sty_FancyAnchor>
-        </Link>
+        <Sty_LinkBlock>
+          <Link href="/gallery" passHref>
+            <Sty_FancyAnchor>Enter Gallery</Sty_FancyAnchor>
+          </Link>
+        </Sty_LinkBlock>
       </Sty_Main>
 
       <Sty_Footer>

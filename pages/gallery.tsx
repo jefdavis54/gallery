@@ -7,7 +7,7 @@ import { works as worksSource } from "../utils/works";
 import { artists as artistsSource } from "../utils/artists";
 import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
 import {
-  Sty_LabelFilterHeading,
+  Sty_FilterHeading,
   Sty_OneRow,
   Sty_BtnAll,
   Sty_BtnNone,
@@ -126,7 +126,7 @@ function ArtGallery() {
       <Nav></Nav>
       <Sty_ContainerPageWithNav>
         <Sty_OneRow>
-          <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
+          <Sty_FilterHeading>Filter by artist:</Sty_FilterHeading>
           <div>
             <Sty_BtnAll
               onClick={() => showAllWorks(true)}

@@ -20,7 +20,7 @@ const ArtworkPage = () => {
   const router = useRouter();
   const queryId = router.query.id;
   let tableRows: TableRow[] = [];
-  const tableHeader = ["Detail Label", "Detail Value"];
+  const tableHeader = ["", "Artwork Details"];
   let artwork: undefined | TSI_Work = undefined;
   let location: undefined | TSI_Location = undefined;
   let artist: undefined | TSI_Artist = undefined;

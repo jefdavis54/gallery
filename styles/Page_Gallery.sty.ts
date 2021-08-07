@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-const Sty_LabelFilterHeading = styled.h3`
+const Sty_FilterHeading = styled.h3`
+  font-size: 2rem;
   margin-left: 1rem;
 `;
 const Sty_OneRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 1.6rem;
   button {
     margin-left: 1rem;
   }
@@ -20,7 +22,7 @@ const Sty_BtnNone = styled.button`
   cursor: pointer;
   border-radius: 100px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.6rem;
 
   .toggle-indicator {
     align-items: center;
@@ -56,4 +58,4 @@ const Sty_BtnAll = styled(Sty_BtnNone)`
   }
 `;
 
-export { Sty_LabelFilterHeading, Sty_OneRow, Sty_BtnAll, Sty_BtnNone };
+export { Sty_FilterHeading, Sty_OneRow, Sty_BtnAll, Sty_BtnNone };

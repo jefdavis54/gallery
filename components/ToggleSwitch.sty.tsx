@@ -9,9 +9,9 @@ const Sty_Toggle = styled.label`
   border-radius: 100px;
   display: flex;
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  margin-right: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.4rem;
+  margin-right: 0.4rem;
   width: 360px;
 
   /* &:last-of-type {

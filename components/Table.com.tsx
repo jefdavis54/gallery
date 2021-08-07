@@ -40,7 +40,7 @@ const Table = ({ rows, header }: Props) => {
   return (
     <Sty_TableContainer>
       <table>
-        <caption>A table of details regarding this artwork</caption>
+        {/* <caption>A table of details regarding this artwork</caption> */}
         <thead>
           <tr>
             {header.map((col, idx) => {

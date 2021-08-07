@@ -33,12 +33,21 @@ const Sty_FancyAnchorSmall = styled(Sty_FancyAnchor)`
     box-shadow: 14px 4px 0 black, -14px -4px 0 black;
   }
 `;
-const Sty_FancyAnchorSmallInverted = styled(Sty_FancyAnchorSmall)`
+const Sty_FancyAnchorSmallInverted = styled(Sty_FancyAnchor)`
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
   box-shadow: 14px 4px 0 black, -14px -4px 0 black;
 
   :hover {
     box-shadow: 4px 4px 0 black, -4px -4px 0 black, -4px 4px 0 black,
       4px -4px 0 black;
+  }
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    box-shadow: 10px 4px 0 black, -10px -4px 0 black;
   }
 `;
 const Sty_FancyBtnSmallInverted = styled.button`
@@ -61,6 +70,12 @@ const Sty_FancyBtnSmallInverted = styled.button`
   :hover {
     box-shadow: 4px 4px 0 black, -4px -4px 0 black, -4px 4px 0 black,
       4px -4px 0 black;
+  }
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    box-shadow: 10px 4px 0 black, -10px -4px 0 black;
   }
 `;
 export {

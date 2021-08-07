@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Sty_Container = styled.div`
-  padding: 0 0.5rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -18,6 +18,7 @@ const Sty_Main = styled.div`
 
 const Sty_PictureBlock = styled.div`
   padding: 0;
+  margin-bottom: 1.6rem;
 
   img {
     width: auto;
@@ -30,13 +31,14 @@ const Sty_PictureBlock = styled.div`
 
 const Sty_Footer = styled.div`
   width: 100%;
-  height: 100px;
+  height: 10rem;
   border-top: 1px solid #eaeaea;
   display: flex;
   justify-content: center;
   align-items: center;
 
   a {
+    font-size: 1.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +46,20 @@ const Sty_Footer = styled.div`
   }
 `;
 
-const Sty_Title = styled.h1``;
+const Sty_LinkBlock = styled.div`
+  margin-bottom: 1.6rem;
+`;
 
-export { Sty_Container, Sty_Main, Sty_PictureBlock, Sty_Footer, Sty_Title };
+const Sty_Title = styled.h1`
+  font-size: 3.2rem;
+  margin-bottom: 2.4rem;
+`;
+
+export {
+  Sty_Container,
+  Sty_Main,
+  Sty_PictureBlock,
+  Sty_Footer,
+  Sty_Title,
+  Sty_LinkBlock,
+};
