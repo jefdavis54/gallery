@@ -22,6 +22,7 @@ const Sty_TableContainer = styled.div`
   td,
   th {
     text-align: left;
+    overflow: hidden;
   }
   th {
     font-size: 2.4rem;
