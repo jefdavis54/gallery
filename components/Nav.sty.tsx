@@ -18,8 +18,12 @@ const Sty_NavTitle = styled.div`
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
+  @media (max-width: 800px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 550px) {
+    font-size: 1rem;
+  } ;
 `;
 
 export { Sty_Nav, Sty_NavRow, Sty_NavTitle };
-// <i class="fas fa-home"></i>
-// <i class="fas fa-caret-square-left"></i>

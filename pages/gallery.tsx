@@ -6,7 +6,7 @@ import { OptionsBox } from "../components/OptionsBox.com";
 import { works as worksSource } from "../utils/works";
 import { artists as artistsSource } from "../utils/artists";
 import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
-import { Sty_LabelFilterHeading } from "../styles/Page_Gallery.sty";
+import { Sty_LabelFilterHeading, Sty_OneRow } from "../styles/Page_Gallery.sty";
 
 interface ArtistDetails {
   easyId: string;
@@ -40,7 +40,9 @@ const initialArtistDetails: ArtistDetails[] = artistsSource.map((artist) => {
 function ArtGallery() {
   const [artistDetails, setArtistDetails] = useState(initialArtistDetails);
   const [galleryPhotos, setGalleryPhotos] = useState(initialGalleryPhotos);
-
+  // useEffect(() => {
+  //   window.localStorage.setItem("artistFilters", JSON.stringify(artistDetails));
+  // });
   const handleArtistCheckedChange = ({
     easyId,
     checked,
@@ -72,13 +74,35 @@ function ArtGallery() {
       setGalleryPhotos(filteredPhotos);
     }
   };
-
+  const showAllWorks = (checked: boolean) => {
+    const setShowWork = [...artistDetails];
+    setArtistDetails(
+      setShowWork.map((work) => {
+        const showWorks = { ...work, checked };
+        console.log(showWorks);
+        return showWorks;
+      })
+    );
+    if (checked) {
+      setGalleryPhotos(initialGalleryPhotos);
+    } else {
+      setGalleryPhotos([]);
+    }
+  };
   return (
     <div>
       <HtmlHead></HtmlHead>
       <Nav></Nav>
       <Sty_ContainerPageWithNav>
-        <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
+        <Sty_OneRow>
+          <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
+          <div>
+            <button onClick={() => showAllWorks(true)}>Select All</button>
+          </div>
+          <div>
+            <button onClick={() => showAllWorks(false)}>Select None</button>
+          </div>
+        </Sty_OneRow>
         <OptionsBox
           componentId={"artist01"}
           optionsArr={artistDetails}

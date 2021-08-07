@@ -11,7 +11,7 @@ const Sty_BtnFancy = styled.button`
   border: 2px solid black;
   box-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
     5px -5px 0 black;
-  transition: 500ms ease-in-out;
+  transition: 250ms ease-in-out;
 
   :hover {
     box-shadow: 20px 4px 0 black, -20px -4px 0 black;
