@@ -5,6 +5,7 @@ import {
   Sty_Container,
   Sty_Main,
   Sty_PictureBlock,
+  Sty_TitleOverlayContainer,
   Sty_Footer,
   Sty_Title,
   Sty_LinkBlock,
@@ -15,14 +16,19 @@ export default function Home() {
     <Sty_Container>
       <HtmlHead></HtmlHead>
       <Sty_Main>
-        <Sty_Title>Welcome to the Strorm Gallery</Sty_Title>
+        <Sty_TitleOverlayContainer>
+          <Sty_Title>
+            <span>Welcome to </span>
+            <span>Strorm Gallery</span>
+          </Sty_Title>
+        </Sty_TitleOverlayContainer>
 
         <Sty_PictureBlock>
           <Link href="/gallery">
             <a>
               <picture>
-                <source type="image/webp" srcSet="hero_opt.webp" />
-                <source type="image/jpeg" srcSet="hero_opt.jpg" />
+                <source type="image/webp" srcSet="hero_opt1.webp" />
+                <source type="image/jpeg" srcSet="hero_opt1.jpg" />
                 <img
                   src="hero_opt.jpg"
                   alt="Wanderer above the Sea of Fog by Caspar David Friedrich"

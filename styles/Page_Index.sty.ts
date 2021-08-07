@@ -7,12 +7,24 @@ const Sty_Container = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+const Sty_TitleOverlayContainer = styled.div`
+  position: absolute;
+  top: 40px;
+  text-align: center;
+  @media (max-width: 800px) {
+    top: 20px;
+    span {
+      display: block;
+    }
+  }
+`;
+
 const Sty_Main = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem 0 0 0;
+  padding: 0;
   text-align: center;
 `;
 
@@ -21,9 +33,7 @@ const Sty_PictureBlock = styled.div`
   margin-bottom: 1.6rem;
 
   img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
+    height: 825px;
     max-height: 100%;
     border: 1px solid #a7acc8;
   }
@@ -52,11 +62,11 @@ const Sty_LinkBlock = styled.div`
 
 const Sty_Title = styled.h1`
   font-size: 3.2rem;
-  margin-bottom: 2.4rem;
 `;
 
 export {
   Sty_Container,
+  Sty_TitleOverlayContainer,
   Sty_Main,
   Sty_PictureBlock,
   Sty_Footer,
