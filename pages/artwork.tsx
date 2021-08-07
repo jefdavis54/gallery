@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { works as worksSource } from "../utils/works";
 import { locations as locationsSource } from "../utils/locations";
@@ -9,66 +8,19 @@ import { Sty_Img } from "../styles/Page_Artwork.sty";
 import { Sty_ContainerPageWithNav } from "../styles/ContainerPageWithNav.sty";
 import { Sty_ContainerBordered } from "../styles/ContainerBordered.sty";
 import { Sty_ContainerImg } from "../styles/ContainerImg.sty";
+import { Table } from "../components/Table.com";
 
-const ArtworkDetails = ({
-  workName,
-  dateCompleted,
-  Accession,
-  artworkLocationURL,
-}: TSI_Work) => {
-  return (
-    <div>
-      <p>Artwork&apos;s Name: {workName}</p>
-      <p>Artwork&apos;s Date Completed: {dateCompleted}</p>
-      <p>Artwork&apos;s Accession Number: {Accession}</p>
-      <p>
-        Artwork&apos;s website (if available):{" "}
-        <Link href={artworkLocationURL}>
-          <a>{artworkLocationURL}</a>
-        </Link>
-      </p>
-    </div>
-  );
-};
-const ArtistDetails = ({ name, nationality, wikiPage }: TSI_Artist) => {
-  return (
-    <>
-      <p>Artist&apos;s Name: {name}</p>
-      <p>Artist&apos;s Nationality: {nationality}</p>
-      <p>
-        Artist&apos;s Wikipedia Page:
-        <Link href={wikiPage}>
-          <a>{wikiPage}</a>
-        </Link>
-      </p>
-    </>
-  );
-};
-const LocationDetails = ({
-  name,
-  city,
-  state,
-  country,
-  website,
-}: TSI_Location) => {
-  const fixedWebsite = "https://" + website;
-  return (
-    <>
-      <p>Artwork&apos;s Location Name: {name}</p>
-      <p>Artwork&apos;s Location City: {city}</p>
-      <p>Artwork&apos;s Location State: {state}</p>
-      <p>Artwork&apos;s Location Country: {country}</p>
-      <p>
-        Artwork&apos;s Location Website:{" "}
-        <Link href={fixedWebsite}>{fixedWebsite}</Link>
-      </p>
-    </>
-  );
-};
+interface TableRow {
+  label: string;
+  value: string;
+  type?: string;
+}
 
 const ArtworkPage = () => {
   const router = useRouter();
   const queryId = router.query.id;
+  let tableRows: TableRow[] = [];
+  const tableHeader = ["Detail Label", "Detail Value"];
   let artwork: undefined | TSI_Work = undefined;
   let location: undefined | TSI_Location = undefined;
   let artist: undefined | TSI_Artist = undefined;
@@ -83,6 +35,40 @@ const ArtworkPage = () => {
       artist = artistsSource.find((artist) => artist.easyId === artistId);
     }
   }
+  if (artist) {
+    tableRows.push({ label: "Artist's Name", value: artist.name });
+    tableRows.push({
+      label: "Artist's Nationality",
+      value: artist.nationality,
+    });
+    tableRows.push({
+      label: "Artist's Wikipedia",
+      value: artist.wikiPage,
+      type: "url",
+    });
+  }
+  if (artwork) {
+    tableRows.push({ label: "Title", value: artwork.workName });
+    tableRows.push({ label: "Date Completed", value: artwork.dateCompleted });
+    tableRows.push({ label: "Accession Number", value: artwork.Accession });
+    tableRows.push({
+      label: "Artwork Website",
+      value: artwork.artworkLocationURL,
+      type: "url",
+    });
+  }
+  if (location) {
+    tableRows.push({ label: "Location", value: location.name });
+    tableRows.push({ label: "City", value: location.city });
+    tableRows.push({ label: "State", value: location.state });
+    tableRows.push({ label: "Country", value: location.country });
+    tableRows.push({
+      label: "Location Website",
+      value: location.website,
+      type: "url",
+    });
+  }
+  tableRows.filter((row) => row.value.trim().length > 0);
   const imgAlternateText =
     (artist ? artist.name : "") +
     (artist && artwork ? " - " : "") +
@@ -103,9 +89,7 @@ const ArtworkPage = () => {
           ></Sty_Img>
         </Sty_ContainerImg>
         <Sty_ContainerBordered>
-          {artist && ArtistDetails(artist)}
-          {artwork && ArtworkDetails(artwork)}
-          {location && LocationDetails(location)}
+          <Table header={tableHeader} rows={tableRows}></Table>
         </Sty_ContainerBordered>
       </Sty_ContainerPageWithNav>
     </div>

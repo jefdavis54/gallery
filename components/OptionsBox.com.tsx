@@ -1,15 +1,16 @@
 import { Sty_OptionsContainer } from "./OptionsBox.sty";
 import { ToggleSwitch } from "./ToggleSwitch.com";
 
-interface OptionsProp {
+interface OptionProp {
   easyId: string;
   checked: boolean;
   label: string;
+  disabled: boolean;
 }
 
 interface ComponentProps {
   componentId: string;
-  optionsArr: OptionsProp[];
+  optionsArr: OptionProp[];
   handleChecked: Function;
 }
 const OptionsBox = ({
@@ -19,16 +20,13 @@ const OptionsBox = ({
 }: ComponentProps) => {
   return (
     <Sty_OptionsContainer>
-      {optionsArr.map(({ easyId, checked, label }, index) => {
-        const uniqueID = easyId + "_" + componentId;
+      {optionsArr.map((option, index) => {
+        const uniqueID = option.easyId + "_" + componentId + "_" + index;
         return (
           <ToggleSwitch
-            key={uniqueID + "_" + index}
+            key={uniqueID}
             componentId={componentId}
-            easyId={easyId}
-            label={label}
-            index={index}
-            checked={checked}
+            optionObj={option}
             handleChecked={handleChecked}
           />
         );

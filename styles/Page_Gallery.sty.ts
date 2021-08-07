@@ -33,6 +33,16 @@ const Sty_BtnNone = styled.button`
     outline: solid 2px transparent;
     width: 24px;
   }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    .toggle-indicator {
+      background: grey;
+    }
+    .checkMark {
+      opacity: 0;
+    }
+  }
 `;
 const Sty_BtnAll = styled(Sty_BtnNone)`
   .toggle-indicator {

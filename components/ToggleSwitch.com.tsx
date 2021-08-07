@@ -1,23 +1,24 @@
 import { Sty_Toggle } from "./ToggleSwitch.sty";
 
-interface ComponentProps {
-  label: string;
-  componentId: string;
+interface OptionProp {
   easyId: string;
-  isDisabled?: boolean;
   checked: boolean;
+  label: string;
+  disabled: boolean;
+}
+
+interface ComponentProps {
+  optionObj: OptionProp;
+  componentId: string;
   handleChecked: Function;
-  index: number;
 }
 
 const ToggleSwitch = ({
-  label,
+  optionObj,
   componentId,
-  easyId,
-  isDisabled = false,
-  checked,
   handleChecked,
 }: ComponentProps) => {
+  const { easyId, checked, label, disabled } = optionObj;
   const uniqueId = easyId + "_" + componentId;
   const uniqueLabelId = uniqueId + "_lbl";
   const uniqueInputId = uniqueId + "_inp";
@@ -33,7 +34,7 @@ const ToggleSwitch = ({
           type="checkbox"
           className="toggle__input"
           id={uniqueInputId}
-          disabled={isDisabled}
+          disabled={disabled}
           checked={checked}
           onChange={handleClick}
         />

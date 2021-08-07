@@ -94,6 +94,14 @@ const Sty_Toggle = styled.label`
     }
   }
 
+  .toggle__input:disabled + .toggle-track .toggle-indicator {
+    background: grey;
+    .checkMark {
+      opacity: 0;
+      transition: opacity ${speed} ease-in-out;
+    }
+  }
+
   input {
     max-width: 4rem;
   }

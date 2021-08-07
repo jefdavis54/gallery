@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Gallery } from "../components/Gallery.com";
 import { HtmlHead } from "../components/HtmlHead.com";
 import { Nav } from "../components/Nav.com";
@@ -16,6 +16,7 @@ import {
 interface ArtistDetails {
   easyId: string;
   checked: boolean;
+  disabled: boolean;
   label: string;
   nationality: string;
 }
@@ -37,17 +38,31 @@ const initialArtistDetails: ArtistDetails[] = artistsSource.map((artist) => {
   return {
     easyId: artist.easyId,
     checked: true,
+    disabled: false,
     label: artist.name,
     nationality: artist.nationality,
   };
 });
+function useHasMounted() {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  return hasMounted;
+}
 
 function ArtGallery() {
+  let disableTillMounted = true;
   const [artistDetails, setArtistDetails] = useState(initialArtistDetails);
   const [galleryPhotos, setGalleryPhotos] = useState(initialGalleryPhotos);
-  // useEffect(() => {
-  //   window.localStorage.setItem("artistFilters", JSON.stringify(artistDetails));
-  // }, [artistDetails]);
+  const hasMounted = useHasMounted();
+  if (hasMounted) {
+    disableTillMounted = false;
+    const localState = window?.localStorage.getItem("artistFilters");
+    if (localState) {
+      console.log("JSON.parse(localState)", JSON.parse(localState));
+    }
+  }
   const handleArtistCheckedChange = ({
     easyId,
     checked,
@@ -59,6 +74,12 @@ function ArtGallery() {
     if (foundIndex >= 0) {
       updateArtistDetails[foundIndex].checked = checked;
       setArtistDetails(updateArtistDetails);
+      if (hasMounted) {
+        window.localStorage.setItem(
+          "artistFilters",
+          JSON.stringify(updateArtistDetails)
+        );
+      }
 
       const includedArtists = updateArtistDetails.filter(
         (artist) => artist.checked
@@ -80,14 +101,19 @@ function ArtGallery() {
     }
   };
   const showAllWorks = (checked: boolean) => {
+    // Update OptionsBox->ToggleSwitches
     const setShowWork = [...artistDetails];
-    setArtistDetails(
-      setShowWork.map((work) => {
-        const showWorks = { ...work, checked };
-        console.log(showWorks);
-        return showWorks;
-      })
-    );
+    const updatedArtistDetails = setShowWork.map((work) => {
+      return { ...work, checked };
+    });
+    setArtistDetails(updatedArtistDetails);
+    if (hasMounted) {
+      window.localStorage.setItem(
+        "artistFilters",
+        JSON.stringify(updatedArtistDetails)
+      );
+    }
+    // Update Gallery
     if (checked) {
       setGalleryPhotos(initialGalleryPhotos);
     } else {
@@ -102,7 +128,10 @@ function ArtGallery() {
         <Sty_OneRow>
           <Sty_LabelFilterHeading>Filter by artist:</Sty_LabelFilterHeading>
           <div>
-            <Sty_BtnAll onClick={() => showAllWorks(true)}>
+            <Sty_BtnAll
+              onClick={() => showAllWorks(true)}
+              disabled={disableTillMounted}
+            >
               <span className="toggle-indicator">
                 <span className="checkMark">
                   <svg
@@ -119,7 +148,10 @@ function ArtGallery() {
             </Sty_BtnAll>
           </div>
           <div>
-            <Sty_BtnNone onClick={() => showAllWorks(false)}>
+            <Sty_BtnNone
+              onClick={() => showAllWorks(false)}
+              disabled={disableTillMounted}
+            >
               <span className="toggle-indicator"></span>
               Select None
             </Sty_BtnNone>
