@@ -12,7 +12,7 @@ const Sty_Toggle = styled.label`
   font-size: 1.8rem;
   margin-bottom: 1.4rem;
   margin-right: 0.4rem;
-  width: 360px;
+  width: 32rem;
 
   /* &:last-of-type {
     margin-right: 0;
