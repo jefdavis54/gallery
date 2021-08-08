@@ -113,4 +113,17 @@ const Sty_Toggle = styled.label`
   }
 `;
 
-export { Sty_Toggle };
+const Sty_Badge = styled.mark`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 33px;
+  font-size: 1.3rem;
+  background-color: #7e878f;
+  color: #cccfe0;
+`;
+
+export { Sty_Toggle, Sty_Badge };

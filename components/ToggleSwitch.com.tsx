@@ -1,14 +1,7 @@
-import { Sty_Toggle } from "./ToggleSwitch.sty";
-
-interface OptionProp {
-  easyId: string;
-  checked: boolean;
-  label: string;
-  disabled: boolean;
-}
+import { Sty_Toggle, Sty_Badge } from "./ToggleSwitch.sty";
 
 interface ComponentProps {
-  optionObj: OptionProp;
+  optionObj: ArtistFilterDetails;
   componentId: string;
   handleChecked: Function;
 }
@@ -18,7 +11,7 @@ const ToggleSwitch = ({
   componentId,
   handleChecked,
 }: ComponentProps) => {
-  const { easyId, checked, label, disabled } = optionObj;
+  const { easyId, checked, label, disabled, artWorkCount } = optionObj;
   const uniqueId = easyId + "_" + componentId;
   const uniqueLabelId = uniqueId + "_lbl";
   const uniqueInputId = uniqueId + "_inp";
@@ -52,7 +45,8 @@ const ToggleSwitch = ({
             </span>
           </span>
         </span>
-        {label}
+        <div>{label}</div>
+        <Sty_Badge>{artWorkCount}</Sty_Badge>
       </Sty_Toggle>
     </div>
   );

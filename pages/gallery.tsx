@@ -11,15 +11,10 @@ import {
   Sty_OneRow,
   Sty_BtnAll,
   Sty_BtnNone,
+  Sty_VisibleWorkCount,
+  Sty_Pill,
+  Sty_PillDark,
 } from "../styles/Page_Gallery.sty";
-
-interface ArtistDetails {
-  easyId: string;
-  checked: boolean;
-  disabled: boolean;
-  label: string;
-  nationality: string;
-}
 
 interface UpdateCheckedProps {
   easyId: string;
@@ -34,15 +29,20 @@ const initialGalleryPhotos: Photo[] = worksSource.map((work) => {
   };
 });
 
-const initialArtistDetails: ArtistDetails[] = artistsSource.map((artist) => {
-  return {
-    easyId: artist.easyId,
-    checked: true,
-    disabled: false,
-    label: artist.name,
-    nationality: artist.nationality,
-  };
-});
+const initialArtistDetails: ArtistFilterDetails[] = artistsSource.map(
+  (artist) => {
+    return {
+      easyId: artist.easyId,
+      nationality: artist.nationality,
+      label: artist.name,
+      checked: true,
+      disabled: false,
+      artWorkCount: worksSource.filter(
+        (work) => work.easyId.split("_")[0] === artist.easyId
+      ).length,
+    };
+  }
+);
 function useHasMounted() {
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
@@ -52,6 +52,7 @@ function useHasMounted() {
 }
 
 function ArtGallery() {
+  const worksCount = worksSource.length;
   let disableTillMounted = true;
   const [artistDetails, setArtistDetails] = useState(initialArtistDetails);
   const [galleryPhotos, setGalleryPhotos] = useState(initialGalleryPhotos);
@@ -127,36 +128,36 @@ function ArtGallery() {
       <Sty_ContainerPageWithNav>
         <Sty_OneRow>
           <Sty_FilterHeading>Filter by artist:</Sty_FilterHeading>
-          <div>
-            <Sty_BtnAll
-              onClick={() => showAllWorks(true)}
-              disabled={disableTillMounted}
-            >
-              <span className="toggle-indicator">
-                <span className="checkMark">
-                  <svg
-                    viewBox="0 0 24 24"
-                    id="ghq-svg-check"
-                    role="presentation"
-                    aria-hidden="true"
-                  >
-                    <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
-                  </svg>
-                </span>
+          <Sty_BtnAll
+            onClick={() => showAllWorks(true)}
+            disabled={disableTillMounted}
+          >
+            <span className="toggle-indicator">
+              <span className="checkMark">
+                <svg
+                  viewBox="0 0 24 24"
+                  id="ghq-svg-check"
+                  role="presentation"
+                  aria-hidden="true"
+                >
+                  <path d="M9.86 18a1 1 0 01-.73-.32l-4.86-5.17a1.001 1.001 0 011.46-1.37l4.12 4.39 8.41-9.2a1 1 0 111.48 1.34l-9.14 10a1 1 0 01-.73.33h-.01z"></path>
+                </svg>
               </span>
-              Select All
-            </Sty_BtnAll>
-          </div>
-          <div>
-            <Sty_BtnNone
-              onClick={() => showAllWorks(false)}
-              disabled={disableTillMounted}
-            >
-              <span className="toggle-indicator"></span>
-              Select None
-            </Sty_BtnNone>
-          </div>
+            </span>
+            Select All
+          </Sty_BtnAll>
+          <Sty_BtnNone
+            onClick={() => showAllWorks(false)}
+            disabled={disableTillMounted}
+          >
+            <span className="toggle-indicator"></span>
+            Select None
+          </Sty_BtnNone>
         </Sty_OneRow>
+        <Sty_VisibleWorkCount>
+          (showing <Sty_Pill>{galleryPhotos.length}</Sty_Pill> of{" "}
+          <Sty_PillDark>{worksCount}</Sty_PillDark> works)
+        </Sty_VisibleWorkCount>
         <OptionsBox
           componentId={"artist01"}
           optionsArr={artistDetails}

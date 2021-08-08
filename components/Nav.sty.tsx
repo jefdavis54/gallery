@@ -17,7 +17,7 @@ const Sty_NavRow = styled.div`
 const Sty_NavTitle = styled.div`
   text-align: center;
   font-size: 3.2rem;
-  font-weight: bold;
+  font-weight: 700;
   @media (max-width: 850px) {
     font-size: 2.4rem;
   }

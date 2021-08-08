@@ -10,7 +10,7 @@ const Sty_FancyAnchor = styled.a`
   width: 150px;
   height: 50px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   color: black;
   background: white;
   border: 2px solid black;
@@ -61,7 +61,7 @@ const Sty_FancyBtnSmallInverted = styled.button`
   box-shadow: 14px 4px 0 black, -14px -4px 0 black;
   cursor: pointer;
   margin: 10px 30px;
-  font-weight: bold;
+  font-weight: 700;
   color: black;
   background: white;
   border: 2px solid black;

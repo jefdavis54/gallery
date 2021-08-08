@@ -1,16 +1,9 @@
 import { Sty_OptionsContainer } from "./OptionsBox.sty";
 import { ToggleSwitch } from "./ToggleSwitch.com";
 
-interface OptionProp {
-  easyId: string;
-  checked: boolean;
-  label: string;
-  disabled: boolean;
-}
-
 interface ComponentProps {
   componentId: string;
-  optionsArr: OptionProp[];
+  optionsArr: ArtistFilterDetails[];
   handleChecked: Function;
 }
 const OptionsBox = ({

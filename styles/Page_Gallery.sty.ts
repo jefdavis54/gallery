@@ -8,7 +8,7 @@ const Sty_OneRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 1.6rem;
+  margin-bottom: 0.4rem;
   button {
     margin-left: 1rem;
   }
@@ -39,7 +39,7 @@ const Sty_BtnNone = styled.button`
     cursor: not-allowed;
     opacity: 0.7;
     .toggle-indicator {
-      background: grey;
+      background: #888;
     }
     .checkMark {
       opacity: 0;
@@ -58,4 +58,33 @@ const Sty_BtnAll = styled(Sty_BtnNone)`
   }
 `;
 
-export { Sty_FilterHeading, Sty_OneRow, Sty_BtnAll, Sty_BtnNone };
+const Sty_VisibleWorkCount = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  margin-bottom: 1.6rem;
+`;
+const Sty_Pill = styled.span`
+  display: flex;
+  justify-content: center;
+  margin: 0 0.4rem;
+  border-radius: 100px;
+  width: 3rem;
+  background-color: #7e878f;
+  color: #cccfe0;
+`;
+const Sty_PillDark = styled(Sty_Pill)`
+  color: #343a41;
+`;
+
+export {
+  Sty_FilterHeading,
+  Sty_OneRow,
+  Sty_BtnAll,
+  Sty_BtnNone,
+  Sty_VisibleWorkCount,
+  Sty_Pill,
+  Sty_PillDark,
+};

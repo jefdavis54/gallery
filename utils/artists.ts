@@ -163,7 +163,7 @@ const artists: TSI_Artist[] = [
     imageOptHeight: 1920,
     imageThmWidth: 399,
     imageThmHeight: 480,
-    name: "James Abbott McNeill Whistler",
+    name: "James McNeill Whistler",
     nationality: "American",
     wikiPage: "https://en.wikipedia.org/wiki/James_Abbott_McNeill_Whistler",
   },

@@ -13,7 +13,14 @@ interface ToggleSwitchProps {
   checked: boolean;
   onChange: Function;
 }
-
+interface ArtistFilterDetails {
+  easyId: string;
+  checked: boolean;
+  disabled: boolean;
+  artWorkCount: number;
+  label: string;
+  nationality: string;
+}
 interface TSI_Work {
   easyId: string;
   imageMaxWidth: number;
