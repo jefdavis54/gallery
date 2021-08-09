@@ -3,6 +3,9 @@ import styled from "styled-components";
 const Sty_FilterHeading = styled.h3`
   font-size: 2rem;
   margin-left: 1rem;
+  @media (max-width: 850px) {
+    font-size: 1.6rem;
+  }
 `;
 const Sty_OneRow = styled.div`
   display: flex;
@@ -43,6 +46,18 @@ const Sty_BtnNone = styled.button`
     }
     .checkMark {
       opacity: 0;
+    }
+  }
+  .show-on-lowres {
+    display: none;
+  }
+  @media (max-width: 850px) {
+    font-size: 1.4rem;
+    .hide-on-lowres {
+      display: none;
+    }
+    .show-on-lowres {
+      display: inline;
     }
   }
 `;

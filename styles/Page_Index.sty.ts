@@ -33,8 +33,6 @@ const Sty_PictureBlock = styled.div`
   margin-bottom: 1.6rem;
 
   img {
-    height: 825px;
-    max-height: 100%;
     border: 1px solid #a7acc8;
   }
 `;

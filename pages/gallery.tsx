@@ -144,14 +144,16 @@ function ArtGallery() {
                 </svg>
               </span>
             </span>
-            Select All
+            <span className="hide-on-lowres">Select All</span>
+            <span className="show-on-lowres">All</span>
           </Sty_BtnAll>
           <Sty_BtnNone
             onClick={() => showAllWorks(false)}
             disabled={disableTillMounted}
           >
             <span className="toggle-indicator"></span>
-            Select None
+            <span className="hide-on-lowres">Select None</span>
+            <span className="show-on-lowres">None</span>
           </Sty_BtnNone>
         </Sty_OneRow>
         <Sty_VisibleWorkCount>
@@ -163,6 +165,11 @@ function ArtGallery() {
           optionsArr={artistDetails}
           handleChecked={handleArtistCheckedChange}
         />
+        {galleryPhotos.length && (
+          <Sty_FilterHeading>
+            Click on an artwork for a high quality view and details
+          </Sty_FilterHeading>
+        )}
         <Gallery photos={galleryPhotos} direction={"row"} />
       </Sty_ContainerPageWithNav>
     </div>

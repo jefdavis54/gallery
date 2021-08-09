@@ -43,7 +43,7 @@ const Sty_FancyAnchorSmallInverted = styled(Sty_FancyAnchor)`
     box-shadow: 4px 4px 0 black, -4px -4px 0 black, -4px 4px 0 black,
       4px -4px 0 black;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 850px) {
     width: 80px;
     height: 30px;
     font-size: 14px;
@@ -71,7 +71,7 @@ const Sty_FancyBtnSmallInverted = styled.button`
     box-shadow: 4px 4px 0 black, -4px -4px 0 black, -4px 4px 0 black,
       4px -4px 0 black;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 850px) {
     width: 80px;
     height: 30px;
     font-size: 14px;

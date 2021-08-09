@@ -27,10 +27,48 @@ export default function Home() {
           <Link href="/gallery">
             <a>
               <picture>
-                <source type="image/webp" srcSet="hero_opt1.webp" />
-                <source type="image/jpeg" srcSet="hero_opt1.jpg" />
+                <source
+                  type="image/webp"
+                  media="(max-width: 599px)"
+                  srcSet="hero_opt-500w.webp"
+                ></source>
+                <source
+                  type="image/webp"
+                  media="(min-width:600px) and (max-width: 799px)"
+                  srcSet="hero_opt-600w.webp"
+                ></source>
+                <source
+                  type="image/webp"
+                  media="(min-width:800px) and (max-width: 999px)"
+                  srcSet="hero_opt-800w.webp"
+                ></source>
+                <source
+                  type="image/webp"
+                  media="(min-width:1000px) and (max-width: 1149px)"
+                  srcSet="hero_opt-1000w.webp"
+                ></source>
+                <source
+                  type="image/jpeg"
+                  media="(max-width: 599px)"
+                  srcSet="hero_opt-500w.jpg"
+                ></source>
+                <source
+                  type="image/jpeg"
+                  media="(min-width:600px) and (max-width: 799px)"
+                  srcSet="hero_opt-600w.jpg"
+                ></source>
+                <source
+                  type="image/jpeg"
+                  media="(min-width:800px) and (max-width: 999px)"
+                  srcSet="hero_opt-800w.jpg"
+                ></source>
+                <source
+                  type="image/jpeg"
+                  media="(min-width:1000px) and (max-width: 1149px)"
+                  srcSet="hero_opt-1000w.jpg"
+                ></source>
                 <img
-                  src="hero_opt.jpg"
+                  src="hero_opt-1150w.jpg"
                   alt="Wanderer above the Sea of Fog by Caspar David Friedrich"
                 />
               </picture>
